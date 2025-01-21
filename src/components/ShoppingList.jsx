@@ -1,11 +1,16 @@
-import ListItemOne from './ListItemOne'
-import ListItemTwo from './ListItemTwo'
+// import ListItemOne from './ListItemOne'
+// import ListItemTwo from './ListItemTwo'
+import ShoppingListItem from './ShoppingListItem'
 
-const ShoppingList = () => {
+const ShoppingList = ({ data }) => {
 	return (
 		<div className='shopping-list'>
-			<ListItemOne />
-			<ListItemTwo />
+			{data.map(item => (
+				<ShoppingListItem item={item} key={item.id} />
+			))}
+
+			{/* <ListItemOne />
+			<ListItemTwo /> */}
 		</div>
 	)
 }
