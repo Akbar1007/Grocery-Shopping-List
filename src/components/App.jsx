@@ -1,10 +1,10 @@
 import { Component } from 'react'
-import { arr } from '../constants/index.js'
+import { v4 as uuidv4 } from 'uuid'
+import { arr } from '../constants'
 import Filter from './Filter'
 import Heading from './Heading'
 import ShoppingAddForm from './ShoppingAddForm'
 import ShoppingList from './ShoppingList'
-
 class App extends Component {
 	constructor(props) {
 		super(props)
@@ -30,6 +30,15 @@ class App extends Component {
 		})
 	}
 
+	onAdd = item => {
+		const { title, number } = item
+		const newData = { title, size: number, active: false, id: uuidv4() }
+		const newArr = [...this.state.data, newData]
+		this.setState({
+			data: newArr,
+		})
+	}
+
 	render() {
 		const { data } = this.state
 		return (
@@ -37,7 +46,7 @@ class App extends Component {
 				<div className='wrapper'>
 					<div className='card'>
 						<Heading />
-						<ShoppingAddForm />
+						<ShoppingAddForm onAdd={this.onAdd} />
 						<ShoppingList
 							data={data}
 							onDelete={this.onDelete}
@@ -45,7 +54,7 @@ class App extends Component {
 						/>
 						<Filter />
 					</div>
-					<img src='/public/earth.svg' alt='earth' />
+					<img src='earth.svg' alt='earth' />
 				</div>
 			</div>
 		)
