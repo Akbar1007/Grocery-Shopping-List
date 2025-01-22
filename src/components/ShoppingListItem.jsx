@@ -13,7 +13,7 @@ class ShoppingListItem extends React.Component {
 	}
 
 	render() {
-		const { item } = this.props
+		const { item, onDeleteItem } = this.props
 		const { active } = this.state
 		return (
 			<div key={item.id} className={`list-item ${active && 'active'}`}>
@@ -25,7 +25,9 @@ class ShoppingListItem extends React.Component {
 					<span className='check' onClick={this.toggleActive}>
 						&#10003;
 					</span>
-					<span className='times'>&times;</span>
+					<span className='times' onClick={onDeleteItem}>
+						&times;
+					</span>
 				</div>
 			</div>
 		)

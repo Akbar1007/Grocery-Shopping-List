@@ -2,11 +2,15 @@
 // import ListItemTwo from './ListItemTwo'
 import ShoppingListItem from './ShoppingListItem'
 
-const ShoppingList = ({ data }) => {
+const ShoppingList = ({ data, onDelete }) => {
 	return (
 		<div className='shopping-list'>
 			{data.map(item => (
-				<ShoppingListItem item={item} key={item.id} />
+				<ShoppingListItem
+					item={item}
+					key={item.id}
+					onDeleteItem={() => onDelete(item.id)}
+				/>
 			))}
 
 			{/* <ListItemOne />

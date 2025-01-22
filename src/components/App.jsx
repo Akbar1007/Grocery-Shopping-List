@@ -1,10 +1,10 @@
 import { Component } from 'react'
+import { arr } from '../constants/index.js'
 import Filter from './Filter'
 import Heading from './Heading'
 import ShoppingAddForm from './ShoppingAddForm'
 import ShoppingList from './ShoppingList'
-import { arr } from '/src/constants/index'
-// push the changes
+
 class App extends Component {
 	constructor(props) {
 		super(props)
@@ -12,14 +12,19 @@ class App extends Component {
 			data: arr,
 		}
 	}
+	onDelete = id => {
+		const newArr = this.state.data.filter(item => item.id !== id)
+		console.log(newArr)
+	}
 	render() {
+		const { data } = this.state
 		return (
 			<div className='app'>
 				<div className='wrapper'>
 					<div className='card'>
 						<Heading />
 						<ShoppingAddForm />
-						<ShoppingList data={arr} />
+						<ShoppingList data={data} onDelete={this.onDelete} />
 						<Filter />
 					</div>
 					<img src='/public/earth.svg' alt='earth' />
