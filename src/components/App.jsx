@@ -15,7 +15,21 @@ class App extends Component {
 	onDelete = id => {
 		const newArr = this.state.data.filter(item => item.id !== id)
 		console.log(newArr)
+		this.setState({ data: newArr })
 	}
+	onToggleActive = id => {
+		const newArr = this.state.data.map(item => {
+			if (item.id === id) {
+				return { ...item, active: !item.active }
+			}
+
+			return item
+		})
+		this.setState({
+			data: newArr,
+		})
+	}
+
 	render() {
 		const { data } = this.state
 		return (
@@ -24,7 +38,11 @@ class App extends Component {
 					<div className='card'>
 						<Heading />
 						<ShoppingAddForm />
-						<ShoppingList data={data} onDelete={this.onDelete} />
+						<ShoppingList
+							data={data}
+							onDelete={this.onDelete}
+							onToggleActive={this.onToggleActive}
+						/>
 						<Filter />
 					</div>
 					<img src='/public/earth.svg' alt='earth' />
