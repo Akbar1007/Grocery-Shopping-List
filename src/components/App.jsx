@@ -12,6 +12,7 @@ class App extends Component {
 		this.state = {
 			data: arr,
 			search: '',
+			filter: 'all',
 		}
 	}
 	onDelete = id => {
@@ -41,7 +42,7 @@ class App extends Component {
 		})
 	}
 
-	search = (arr, input) => {
+	searchData = (arr, input) => {
 		if (!input.length) {
 			return arr
 		}
@@ -55,10 +56,25 @@ class App extends Component {
 		this.setState({ search })
 	}
 
-	render() {
-		const { data, search } = this.state
+	filterData = (arr, filter) => {
+		switch (filter) {
+			case 'completed':
+				return arr.filter(item => item.active)
+			case 'big size':
+				return arr.filter(item => item.size > 10)
+			default:
+				return arr
+		}
+	}
 
-		const allData = this.search(data, search)
+	onFilterSelect = filter => {
+		this.setState({ filter })
+	}
+
+	render() {
+		const { data, search, filter } = this.state
+
+		const allData = this.filterData(this.searchData(data, search), filter)
 
 		return (
 			<div className='app'>
@@ -72,7 +88,7 @@ class App extends Component {
 							onDelete={this.onDelete}
 							onToggleActive={this.onToggleActive}
 						/>
-						<Filter />
+						<Filter filter={filter} onFilterSelect={this.onFilterSelect} />
 					</div>
 					<img src='earth.svg' alt='earth' />
 				</div>
