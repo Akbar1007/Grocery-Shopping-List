@@ -61,55 +61,57 @@
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
+	h1 {
+		color: #fff;
+	}
+	span {
+		width: 50px;
+		text-align: center;
+		font-weight: bold;
+		font-size: 25px;
+		color: #000;
+		background-color: #ffd700;
+		padding: 5px;
+		border-radius: 100%;
+	}
 }
-.information h1 {
-	color: #fff;
-}
-.information span {
-	width: 50px;
-	text-align: center;
-	font-weight: bold;
-	font-size: 25px;
-	color: #000;
-	background-color: #ffd700;
-	padding: 5px;
-	border-radius: 100%;
-}
+
 /* ADD FORM */
 .form {
 	display: flex;
 	gap: 10px;
 	margin-top: 20px;
+	input {
+		border-radius: 5px;
+		background: rgba(255, 255, 255, 0.6);
+		height: 35px;
+		outline: none;
+		border: none;
+		padding: 0 10px;
+	}
+	input::placeholder {
+		font-size: 18px;
+	}
+	button {
+		width: 101px;
+		height: 35px;
+		outline: none;
+		border: none;
+		cursor: pointer;
+		background-color: transparent;
+		border: 1px solid #ffd700;
+		color: #ffd700;
+		font-size: 17px;
+		border-radius: 3px;
+		font-weight: bold;
+		transition: all 0.2s ease;
+	}
+	button:hover {
+		background-color: #ffd700;
+		color: #000;
+	}
 }
-.form input {
-	border-radius: 5px;
-	background: rgba(255, 255, 255, 0.6);
-	height: 35px;
-	outline: none;
-	border: none;
-	padding: 0 10px;
-}
-.form input::placeholder {
-	font-size: 18px;
-}
-.form button {
-	width: 101px;
-	height: 35px;
-	outline: none;
-	border: none;
-	cursor: pointer;
-	background-color: transparent;
-	border: 1px solid #ffd700;
-	color: #ffd700;
-	font-size: 17px;
-	border-radius: 3px;
-	font-weight: bold;
-	transition: all 0.2s ease;
-}
-.form button:hover {
-	background-color: #ffd700;
-	color: #000;
-}
+
 /* SHOPPING LIST */
 .shopping-list {
 	margin-top: 30px;
@@ -125,52 +127,59 @@
 	align-items: center;
 	transition: all 0.3s ease;
 	cursor: pointer;
+	.item-info {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+	.item-info span {
+		width: 30px;
+		text-align: center;
+		padding: 5px;
+		background-color: #ffd700;
+		font-weight: bold;
+		border-bottom-left-radius: 7px;
+		border-top-left-radius: 7px;
+	}
+	.item-info p {
+		color: rgba(255, 255, 255, 0.9);
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+	.item-info p {
+		color: rgba(255, 255, 255, 0.9);
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+	.item-actions {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		span {
+			font-size: 30px;
+			flex-shrink: 0;
+			cursor: pointer;
+			font-weight: bold;
+		}
+		.times {
+			color: #ffd700;
+			padding-left: 15px;
+		}
+		.check {
+			color: #fff;
+		}
+	}
 }
 .list-item.active {
 	background-color: #42ade3;
 	border-radius: 5px;
-}
-.list-item .item-info {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-}
-.list-item .item-info span {
-	width: 30px;
-	text-align: center;
-	padding: 5px;
-	background-color: #ffd700;
-	font-weight: bold;
-	border-bottom-left-radius: 7px;
-	border-top-left-radius: 7px;
-}
-.list-item .item-info p {
-	color: rgba(255, 255, 255, 0.9);
-	font-size: 20px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-}
-.list-item .item-actions {
-	display: flex;
-	align-items: center;
-	gap: 5px;
-}
-.list-item .item-actions span {
-	font-size: 30px;
-	flex-shrink: 0;
-	cursor: pointer;
-	font-weight: bold;
-}
-.list-item .item-actions .times {
-	color: #ffd700;
-	padding-left: 15px;
-}
-.list-item .item-actions .check {
-	color: #fff;
-}
-.list-item.active .item-actions span {
-	color: #000;
+	.item-actions span {
+		color: #000;
+	}
 }
 /* FILTER */
 .filter {
@@ -187,26 +196,26 @@
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-}
-.btns button {
-	height: 40px;
-	border: none;
-	outline: none;
-	background-color: transparent;
-	border: 1px solid #ffd700;
-	font-weight: bold;
-	color: #000;
-	cursor: pointer;
-	color: #fff;
-	transition: all 0.2s ease;
-}
-.btns button:hover {
-	background-color: #ffd700;
-	color: #000;
-}
-.btns button.active {
-	background-color: #ffd700;
-	color: #000;
+	button {
+		height: 40px;
+		border: none;
+		outline: none;
+		background-color: transparent;
+		border: 1px solid #ffd700;
+		font-weight: bold;
+		color: #000;
+		cursor: pointer;
+		color: #fff;
+		transition: all 0.2s ease;
+	}
+	button:hover {
+		background-color: #ffd700;
+		color: #000;
+	}
+	button.active {
+		background-color: #ffd700;
+		color: #000;
+	}
 }
 /* Search Panel */
 .search {
@@ -223,9 +232,9 @@
 @media only screen and (max-width: 800px) {
 	.wrapper {
 		grid-template-columns: 100%;
-	}
-	.wrapper img {
-		display: none;
+		img {
+			display: none;
+		}
 	}
 	.card {
 		height: 100vh;
