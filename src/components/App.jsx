@@ -45,7 +45,7 @@ class App extends Component {
 			<div className='app'>
 				<div className='wrapper'>
 					<div className='card'>
-						<Heading />
+						<Heading length={data.length} />
 						<ShoppingAddForm onAdd={this.onAdd} />
 						<ShoppingList
 							data={data}
